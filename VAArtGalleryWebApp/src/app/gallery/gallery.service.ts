@@ -7,7 +7,7 @@ import { Gallery } from './models';
   providedIn: 'root'
 })
 export class GalleryService {
-  private baseUrl = 'https://localhost:7042/api/art-galleries'
+  private baseUrl = 'https://localhost:44351/api/art-galleries'
   constructor(private http: HttpClient) { }
 
   getGalleries(): Observable<Gallery[]> {
