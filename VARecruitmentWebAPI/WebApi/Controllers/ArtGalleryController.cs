@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Xml.Linq;
 using VAArtGalleryWebAPI.Application.Queries;
 using VAArtGalleryWebAPI.WebApi.Models;
 
@@ -18,6 +19,17 @@ namespace VAArtGalleryWebAPI.WebApi.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("art-works/gallery/{id}")]
+        public async Task<ActionResult<List<GetArtGalleryArtWorksResult>>> GetArtGalleryArtWorks(Guid id)
+        {
+            var gallery = await mediator.Send(new GetArtGalleryArtWorksQuery(id));
+
+            var result = gallery.Select(g => new GetArtGalleryArtWorksResult(g.Id, g.Name, g.Author, g.CreationYear, g.AskPrice)).ToList();
+
+            return Ok(result);
+        }
+
 
         [HttpPost]
         public async Task<ActionResult<CreateArtGalleryResult>> Create([FromBody] CreateArtGalleryRequest request)

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Gallery } from './models';
 import { GalleryService } from './gallery.service';
+import { Router } from '@angular/router';
 
 
 
@@ -14,7 +15,10 @@ export class GalleryComponent implements OnInit {
   galleries: Gallery[] = [];
   displayedColumns: string[] = ['name', 'city', 'manager', 'nbrWorks', 'actions'];
 
-  constructor(private galleryService: GalleryService) { }
+  constructor(
+    private galleryService: GalleryService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
     this.galleryService.getGalleries().subscribe(galleries => {this.galleries = galleries; console.log(this.galleries);});
@@ -24,7 +28,7 @@ export class GalleryComponent implements OnInit {
     console.log(galleryId);
   }
 
-  openArtWorksList(galleryId: string) {
-    console.log(galleryId);
+  openArtWorksList(gallery: Gallery) {
+    this.router.navigate(['art-works/' + gallery.id + '/' + gallery.name]);
   }
 }

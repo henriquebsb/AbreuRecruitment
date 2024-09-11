@@ -6,7 +6,7 @@ import { WorkComponent } from './work/work.component';
 const routes: Routes = [
   { path: '', component: GalleryComponent },
   { path: 'art-galleries', component: GalleryComponent },
-  { path: 'art-works/:id', component: WorkComponent }
+  { path: 'art-works/:id/:name', component: WorkComponent }
 ];
 
 @NgModule({

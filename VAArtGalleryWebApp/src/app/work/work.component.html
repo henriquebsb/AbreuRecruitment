@@ -1,39 +1,37 @@
 <div>
   <h1>
-    <!-- Obras de Arte {{galleryName}} -->
-     Obras de Arte
+    Obras de Arte: {{galleryName}}
   </h1>
   <table mat-table [dataSource]="works">
 
-    <!-- <ng-container matColumnDef="name">
+    <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Nome </th>
-      <td mat-cell *matCellDef="let gallery"> {{gallery.name}} </td>
+      <td mat-cell *matCellDef="let work"> {{work.name}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="city">
-      <th mat-header-cell *matHeaderCellDef> Cidade </th>
-      <td mat-cell *matCellDef="let gallery"> {{gallery.city}} </td>
+    <ng-container matColumnDef="author">
+      <th mat-header-cell *matHeaderCellDef> Autor </th>
+      <td mat-cell *matCellDef="let work"> {{work.city}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="manager">
-      <th mat-header-cell *matHeaderCellDef> Responsável </th>
-      <td mat-cell *matCellDef="let gallery"> {{gallery.manager}} </td>
+    <ng-container matColumnDef="creationYear">
+      <th mat-header-cell *matHeaderCellDef> Ano de Criação </th>
+      <td mat-cell *matCellDef="let work"> {{work.creationYear}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="nbrWorks">
-      <th mat-header-cell *matHeaderCellDef> # Obras Expostas </th>
-      <td mat-cell *matCellDef="let gallery"> {{gallery.nbrOfArtWorksOnDisplay}} </td>
+    <ng-container matColumnDef="askPrice">
+      <th mat-header-cell *matHeaderCellDef> Valor de Venda </th>
+      <td mat-cell *matCellDef="let work"> {{work.askPrice | currency: 'EUR' : '' : '4.3-3' }} EUR</td>
     </ng-container>
 
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let gallery">
+      <td mat-cell *matCellDef="let work">
         <span>
-          <mat-icon aria-hidden="false" aria-label="edit" fontIcon="edit" (click)="editGalleryClick(gallery.id)"></mat-icon>
-          <mat-icon aria-hidden="false" aria-label="art works list" fontIcon="list_alt" (click)="openArtWorksList(gallery.id)"></mat-icon>
+          <mat-icon aria-hidden="false" aria-label="delete" fontIcon="delete" (click)="deleteArtWorkClick(work.id)"></mat-icon>
         </span>
       </td>
-    </ng-container> -->
+    </ng-container>
 
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
