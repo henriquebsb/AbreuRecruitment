@@ -10,7 +10,7 @@ export class WorkService {
   private baseUrl = 'https://localhost:44351/api/art-works'
   constructor(private http: HttpClient) { }
 
-  getGalleries(): Observable<Work[]> {
-    return this.http.get<Work[]>(`${this.baseUrl}`);
+  deleteArtWork(id: string | null): Observable<string> {
+    return this.http.delete<string>(`${this.baseUrl}/` + id);
   }
 }
