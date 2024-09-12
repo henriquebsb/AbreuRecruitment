@@ -5,3 +5,9 @@ export interface Gallery {
   manager: string;
   nbrOfArtWorksOnDisplay: number;
 }
+
+export interface CreateGallery {
+  name: string;
+  city: string;
+  manager: string;
+}

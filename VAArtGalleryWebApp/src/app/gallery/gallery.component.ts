@@ -26,11 +26,9 @@ export class GalleryComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      if (result !== undefined) {
-        console.log(result);
+      if (result !== undefined && result == 'onConfirm') {
+        this.galleryService.getGalleries().subscribe(galleries => {this.galleries = galleries; console.log(this.galleries);});
       }
-
-      this.galleryService.getGalleries().subscribe(galleries => {this.galleries = galleries; console.log(this.galleries);});
     });
   }
 

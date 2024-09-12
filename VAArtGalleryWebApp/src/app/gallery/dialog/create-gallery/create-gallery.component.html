@@ -1,11 +1,19 @@
 <h2 mat-dialog-title>Create Gallery</h2>
 <mat-dialog-content>
-  <!-- <mat-form-field>
+  <mat-form-field>
     <mat-label>Name</mat-label>
-    <input matInput [(ngModel)]="gallery" />
-  </mat-form-field> -->
+    <input matInput [(ngModel)]="name" />
+  </mat-form-field><br>
+  <mat-form-field>
+    <mat-label>City</mat-label>
+    <input matInput [(ngModel)]="city" />
+  </mat-form-field><br>
+  <mat-form-field>
+    <mat-label>Manager</mat-label>
+    <input matInput [(ngModel)]="manager" />
+  </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="onNoClick()">Cancel</button>
   <button mat-button (click)="onConfirm()" cdkFocusInitial>Ok</button>
 </mat-dialog-actions>

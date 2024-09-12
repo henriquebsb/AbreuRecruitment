@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Gallery } from './models';
+import { CreateGallery, Gallery } from './models';
 import { Work } from '../work/models';
 
 @Injectable({
@@ -17,5 +17,9 @@ export class GalleryService {
 
   getArtWorksGallery(id: string | null): Observable<Work[]> {
     return this.http.get<Work[]>(`${this.baseUrl}/art-works/gallery/` + id);
+  }
+
+  createArtGallery(gallery: CreateGallery): Observable<Gallery> {
+    return this.http.post<Gallery>(this.baseUrl, gallery);
   }
 }
